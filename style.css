@@ -1,32 +1,320 @@
+/* JAPANKNEE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* ROOT */
+:root{
+    --lightMode: #FAFAFF;
+    --darkMode: #222;
+
+    --lightAcsend: #dcdcdc;
+    --darkAcsend: #4b4b4b;
+
+    --darkGray: #313638;
+    --lightSecond   : #eaeaff;
+    --darkSecond    : #2a2a2a;
+
+    --succesText: #8BC34A;
+    --dangerText: #f44336;
+
+    --succesTextDark: #97f32e;
+    --dangerTextDark: #ff4e41;
+    --succesShaDark: #7a9265;
+    --dangerShaDark: #80595f;
+
+    --darkText: #28190e;
+    --lightText: #f0f8ff;
+}
+
 body{
     margin: 0;
     padding: 0;
     width: 100svw;
     height: 100svh;
-    font-family: sans-serif,Arial;
+
+    font-family: "Lato", sans-serif;
+
     display:grid;
-    /* grid-template-columns: repeat(4, 1fr); */
-    grid-template-rows: repeat(4, 1fr);
-    text-align: center;
-    
-}
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12,1fr);
 
-input[type="text"]{
+    justify-content: center;
     text-align: center;
 }
 
-#textWord{
-    font-size: 5em;
-}
 
-#display-score{
+/* Tab Actions */
+input[type="checkbox"]{
+    display: none;
+}
+#tab-actions{
+    /*
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 4; 
+    grid-column-end: 3;
+    */
+    grid-area: 1/1/13/2;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 2rem;
+
+    font-weight: 900;
 }
-#display-score #correst-answer{
-    color: green;
+#tab-expand-toogle:checked ~ div#tab-actions{
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-area: 1/1/13/3;   
 }
-#display-score #wrong-answer{
-    color: crimson;
+
+
+#tab-actions label{
+    padding: 0.5em;
+    border-radius: 100em;
+    
+    margin: 0.5em;
+
+    cursor: pointer;
+    transition: all .5 cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#tab-actions #wrong-answer,
+#tab-actions #correct-answer{
+    font-family: monospace;
+}
+label#correct-answer{
+    display: flex;
+    
+    padding: .5em;
+    border-radius: 100em;
+
+    align-items: center;
+    justify-content: center;
+}
+label#wrong-answer{
+    display: flex;
+    
+    padding: .5em;
+    border-radius: 100em;
+
+    align-items: center;
+    justify-content: center;
+}
+label#profile-toogle{
+    grid-area: 1/1/1/1;
+}
+label#theme-toogle{
+    grid-area:11/1/11/1;
+}
+label#tab-expand-toogle{
+    grid-area: 12/1/12/1;
+}
+
+/* Input ANSWER */
+#container-input-answer{
+    grid-area: 11/2/13/13;
+
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+}
+
+#myAnswer{
+    padding: 0 1em;
+
+    font-size: 3rem;
+    font-weight: 700;
+    
+    border: none;
+    outline: none;
+    text-align: center;
+    background: none;
+
+    grid-area: 1/1/1/12;
+}
+#myAnswer:active,
+#myAnswer:focus{
+    outline: none;
+}
+#btn-chechk-answer{
+    padding: 0 1em;
+    border-radius: 100em;
+
+    font-size: 2rem;
+    font-weight: 500;
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+
+    background-color: transparent;
+
+    grid-area: 1/10/1/11;
+
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/* Display QUESTION */
+#container-text{
+    grid-area: 3/2/10/13;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Noto Sans JP", sans-serif;
+    /* font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal; */
+
+}
+#textWord{
+    margin: 0;
+    font-size: 10em;
+}
+
+/* CORRCET?WRONG? */
+#display-message{
+    grid-area: 1/2/3/13;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color:transparent;
+}
+
+.pulse-animation{
+    animation: pulse 1s ease 0s 1 normal;
+}
+.shake-animation{
+    animation: shake 1s ease 0s 1 normal;
+}
+
+
+/* LIGHT MODE == MODE TERANG... HHUAAAA AAA... AAAHAA */
+body.light #tab-actions label:hover{
+    background-color:var(--lightAcsend);
+}
+body.light #tab-actions{
+    background-color: var(--lightSecond);
+}
+
+body.light #container-input-answer{
+    background:var(--lightSecond);
+}
+body.light #btn-chechk-answer:hover,
+body.light #btn-chechk-answer:focus{
+    background-color: gainsboro;
+}
+
+
+body.light label#correct-answer{
+    color:var(--succesText);
+    background-color:#f1f8e9;
+}
+body.light label#wrong-answer{
+    color: var(--dangerText);
+    background-color:#ffebee;
+}
+
+body.light #container-text{
+    color: var(--darkText);
+}
+
+/* DARK MODE == MODE HITAM!! */
+body.dark #tab-actions label:hover{
+    background-color:var(--darkAcsend);
+}
+body.dark #tab-actions{
+    background: var(--darkSecond);
+}
+
+body.dark #container-input-answer *{
+    color: var(--lightText);
+    background: var(--darkSecond);
+}
+body.dark #btn-chechk-answer:hover,
+body.dark #btn-chechk-answer:focus{
+    background: var(--darkGray);
+}
+
+body.dark label#correct-answer{
+    color:var(--succesTextDark);
+    background-color:var(--succesShaDark);
+}
+body.dark label#wrong-answer{
+    color: var(--dangerTextDark);
+    background-color:var(--dangerShaDark);
+}
+
+body.light #container-text{
+    color: var(--darkText);
+}
+
+
+
+
+
+
+
+
+
+
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-10px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(10px);
+	}
+
+	80% {
+		transform: translateX(8px);
+	}
+
+	90% {
+		transform: translateX(-8px);
+	}
+}
+
+/* Laptop View */
+@media (width <= 1024px) {
+    body{
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10,1fr);
+    }   
+}
+
+@media (width <= 800px) {
+    body{
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8,1fr);
+    } 
 }
