@@ -422,11 +422,27 @@ body.light #container-text{
         grid-area: 3/1/7/9;
     }
 
-    #container-input-answer{
-        grid-area: 8/1/8/9;
+    div#container-input-answer{
+        grid-area: 7/1/9/7;
+
+        height: 100%;
+        width: calc(100svw);
+
+        display: flex;
+        flex-direction: column;
+        
     }
-    #container-input-answer button{
-        display: none;
+    #container-input-answer #myAnswer{
+        grid-area: 1/1/1/1;
+        height: 100%;
+
+    }
+    #container-input-answer button#btn-chechk-answer{
+        /* display: none; */
+        border-radius: 0;
+        grid-area: 2/1/2/1;
+
+        height: 100%;
     }
 
 }

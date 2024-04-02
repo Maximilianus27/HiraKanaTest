@@ -431,7 +431,7 @@ function chechkAnswer(){
         msg.classList.add("shake-animation");
     }
     else 
-    if(myAnswer.value.toLowerCase() == hiraKana[num].romaji)
+    if(myAnswer.value.toLowerCase().trim() == hiraKana[num].romaji)
     {
         msg.style.padding = "1em";
         msg.style.color = "whitesmoke";
