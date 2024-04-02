@@ -27,7 +27,7 @@
     </div>
     <input type="checkbox" name="tab-expand-toogle" id="tab-expand-toogle">
     <input type="checkbox" name="profile-toogle" id="profile-toogle">
-    <!-- <input type="checkbox" name="theme-toogle" id="theme-toogle"> -->
+    <!-- <input type="checkbox" name="theme-toogle" id="theme-checkbox-toogle" onchange="themeSwitch()"> -->
     <div id="tab-actions">
         <label for="profile-toogle" id="profile-toogle">
             <i class="fa-solid fa-user"></i>
@@ -40,6 +40,32 @@
         <label for="tab-expand-toogle" id="tab-expand-toogle">
             <i class="fa-solid fa-bars"></i>
         </label>
+    </div>
+    <div id="tab-actions-mobile">
+        <div id="cont-profile-toogle">
+            <label for="profile-toogle" id="profile-toogle">
+                <i class="fa-solid fa-user"></i>
+            </label>
+        </div>
+
+        <div id="cont-wrong-answer">
+            <h2 id="wrong-answer">0</h2>
+        </div>
+        <div id="cont-correct-answer">
+            <h2 id="correct-answer">0</h2>
+        </div>
+
+        <div id="cont-theme-toogle">
+            <label for="theme-toogle" id="theme-toogle">
+                <i class="fa-regular fa-moon"></i>
+            </label>    
+        </div>
+
+        <div id="cont-tab-expand-toogle">
+            <label for="tab-expand-toogle" id="tab-expand-toogle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
     </div>
     
     <script src="main.js"></script>
