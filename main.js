@@ -4,8 +4,11 @@ let txt = document.querySelector("#textWord");
 let msg = document.querySelector("#message");
 let correctTxt = document.querySelector("#correct-answer");
 let wrongTxt = document.querySelector("#wrong-answer");
+let correctTxtM = document.querySelector("#cont-correct-answer > #correct-answer");
+let wrongTxtM = document.querySelector("#cont-wrong-answer > #wrong-answer");
 let myAnswer = document.querySelector("#myAnswer");
 let theme = document.querySelector("#theme-toogle");
+let themeM = document.querySelector("#cont-theme-toogle > #theme-toogle");
 let num;
 let hk;
 const hika = ["k", "h"];
@@ -371,6 +374,7 @@ let correctAns =  0;
 let wrongAns =  0;
 
 function play(){
+
     correctAns = localStorage.getItem("correct") || 0;
     wrongAns = localStorage.getItem("wrong") || 0;
 
@@ -397,6 +401,8 @@ document.addEventListener("keydown",(event)=>{
 function nextQuestion() {
     correctTxt.textContent = correctAns;
     wrongTxt.textContent = wrongAns;
+    correctTxtM.textContent = correctAns;
+    wrongTxtM.textContent = wrongAns;
 
     localStorage.setItem("correct", correctAns);
     localStorage.setItem("wrong", wrongAns);
@@ -468,9 +474,8 @@ play();
 
 // THEME SYSTEMS
 
-theme.addEventListener("click", ()=>{
-    themeSwitch();
-})
+theme.addEventListener("click", ()=>{themeSwitch();})
+themeM.addEventListener("click", ()=>{themeSwitch();})
 function themeSwitch(){
     // HIIIITAAAAAMMMMM
     if( body.classList == "light")
