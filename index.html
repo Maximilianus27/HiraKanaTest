@@ -5,19 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google" value="notranslate" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiragana Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <title>Hiragana Test</title>
 </head>
-<body>
-    <div id="display-score">
-        <p id="correct-answer">0</p>
+<body class="light">
+
+    <div id="display-message">
         <p id="message"></p>
-        <p id="wrong-answer">0</p>
     </div>
-    <h1 id="textWord"></h1>
-    <input type="text" name="myAnswer" id="myAnswer">
-    <button onclick="chechkAnswer()">cek</button>
+    <div id="container-text">
+        <h1 id="textWord" class="noto-sans"></h1>
+    </div>
+    <div id="container-input-answer">
+        <input type="text" name="myAnswer" placeholder="Ketik disini..." id="myAnswer" autofocus>
+        <button onclick="chechkAnswer()" id="btn-chechk-answer">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+    <input type="checkbox" name="tab-expand-toogle" id="tab-expand-toogle">
+    <input type="checkbox" name="profile-toogle" id="profile-toogle">
+    <!-- <input type="checkbox" name="theme-toogle" id="theme-toogle"> -->
+    <div id="tab-actions">
+        <label for="profile-toogle" id="profile-toogle">
+            <i class="fa-solid fa-user"></i>
+        </label>
+        <label id="wrong-answer">0</label>
+        <label id="correct-answer">0</label>
+        <label for="theme-toogle" id="theme-toogle">
+            <i class="fa-regular fa-moon"></i>
+        </label>    
+        <label for="tab-expand-toogle" id="tab-expand-toogle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+    </div>
     
     <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/3b327d2ed8.js" crossorigin="anonymous"></script>
 </body>
 </html>
